@@ -10,28 +10,26 @@
           icon="menu"
           aria-label="Menu"
         />
+        <q-toolbar-title>FreeKG</q-toolbar-title>
 
-        <q-toolbar-title>
-          FreeKG
-        </q-toolbar-title>
+        <q-tabs v-model="tab" shrink stretch>
+          <q-tab name="tab1" label="Booking" />
+          <q-tab name="tab2" label="Ads" />
+          <q-tab name="tab3" label="Contact" />
+        </q-tabs>
 
-        <div>freekg v{{ $q.version }}</div>
+        <q-footer elevated>
+          <q-toolbar>
+            <q-toolbar-title>freekg.com v0.0.1</q-toolbar-title>
+          </q-toolbar>
+        </q-footer>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered content-class="bg-grey-1">
       <q-list>
         <q-item-label header class="text-grey-8">Essential Links</q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
       </q-list>
     </q-drawer>
 
